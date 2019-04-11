@@ -1,16 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-function Index() {
-    return <h2>Home</h2>;
+function login() {
+    return (
+    <div>
+        <span>Login</span><input type="text" placeholder="Enter you email or login"></input><br/>
+        <span>Password</span><input type="password" placeholder="Enter you Password"></input>
+    </div>);
 }
 
-function About() {
-    return <h2>About</h2>;
+function register() {
+    return <h2>register</h2>;
 }
 
-function Users() {
-    return <h2>Users</h2>;
+function profile() {
+    return <h2>profile</h2>;
 }
 
 function AppRouter() {
@@ -20,20 +24,20 @@ function AppRouter() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/login/">Login</Link>
                         </li>
                         <li>
-                            <Link to="/about/">About</Link>
+                            <Link to="/register/">register</Link>
                         </li>
                         <li>
-                            <Link to="/users/">Users</Link>
+                            <Link to="/profile/">profile</Link>
                         </li>
                     </ul>
                 </nav>
 
-                <Route path="/" exact component={Index} />
-                <Route path="/about/" component={About} />
-                <Route path="/users/" component={Users} />
+                <Route path="/login/" exact component={login} />
+                <Route path="/register/" component={register} />
+                <Route path="/profile/" component={profile} />
             </div>
         </Router>
     );
