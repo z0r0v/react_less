@@ -11,6 +11,17 @@ const DivStl = {
     textAlign:'center',
 }
 
+const btnNavi = {
+    backgroundColor:'#800080',
+    display:'inlaine-block',
+
+}
+
+const linkDecor = {
+    color:'#ffff',
+    textDecoration:'none',
+}
+
 function AppRouter() {
     return (
         <Router>
@@ -18,13 +29,25 @@ function AppRouter() {
                 <nav>
                     <ul style={StlUl}>
                         <li>
-                            <Link to="/login/">Login</Link>
+                            <button style={btnNavi}>
+                                <Link style={linkDecor} to="/login/">
+                                    Login
+                                </Link>
+                            </button>
                         </li>
                         <li>
-                            <Link to="/register/">Register</Link>
+                            <button style={btnNavi}>
+                                <Link style={linkDecor} to="/register/">
+                                    Register
+                                </Link>
+                            </button>
                         </li>
                         <li>
-                            <Link to="/profile/">Profile</Link>
+                            <button style={btnNavi}>
+                                <Link style={linkDecor} to="/profile/">
+                                    Profile
+                                </Link>
+                            </button>
                         </li>
                     </ul>
                 </nav>
