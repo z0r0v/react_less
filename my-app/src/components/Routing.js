@@ -14,6 +14,8 @@ const DivStl = {
 const btnNavi = {
     backgroundColor:'#800080',
     display:'inlaine-block',
+    width:'250px',
+    marginRight:'37px'
 
 }
 
