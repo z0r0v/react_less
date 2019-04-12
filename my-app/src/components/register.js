@@ -35,7 +35,7 @@ const inpStyleReg3 = {
             <input style={inpStyleReg2} type="password" placeholder="Enter you Password" />
             <br/>
             <span>Confirm password: </span>
-            <input style={inpStyleReg3} type="password" placeholder="Confirm you Password" />
+            <input style={inpStyleReg3} type="password" placeholder="Confirm Password" />
             <br/>
             <button style={btn} type="submit">Create account</button>
         </div>
