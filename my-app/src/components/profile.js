@@ -7,12 +7,19 @@ const btn = {
     color:'#FFFFFF'
 }
 
+const inpStyleProf = {
+    width:'244px',
+    height: "100px",
+    marginBottom:'5px',
+
+}
+
    function profile() {
         return (
             <div>
-                <span>Сhange your content </span>
+                <span>Сhange your content: </span>
                 <br/>
-                <input type="text" placeholder="Enter your content here"/>
+                <input style={inpStyleProf} type="text" placeholder="Enter your content here"/>
                 <br/>
                 <button style={btn} type="submit">Apply</button>
             </div>);

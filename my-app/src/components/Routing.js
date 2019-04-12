@@ -4,12 +4,19 @@ import login from "./login";
 import register from "./register";
 import profile from "./profile";
 
+const StlUl = {
+    listStyleType: "none",
+}
+const DivStl = {
+    textAlign:'center',
+}
+
 function AppRouter() {
     return (
         <Router>
-            <div>
+            <div style={DivStl}>
                 <nav>
-                    <ul>
+                    <ul style={StlUl}>
                         <li>
                             <Link to="/login/">Login</Link>
                         </li>

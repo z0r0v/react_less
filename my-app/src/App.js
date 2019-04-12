@@ -1,6 +1,7 @@
 import React from "react";
 import Info from "./components/info";
 import AppRouter from "./components/Routing";
+import Create from "./components/Create";
 
 class App extends React.Component {
     render() {
@@ -8,6 +9,7 @@ class App extends React.Component {
             <div>
                 <Info />
                 <AppRouter />
+                <Create />
             </div>
         );
     }
