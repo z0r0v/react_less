@@ -1,15 +1,20 @@
 import React from "react";
 
-class profile extends React.Component {
-   profile() {
+const btn = {
+    background:'#800080',
+    width:'250px',
+    height:'30px',
+    color:'#FFFFFF'
+}
+
+   function profile() {
         return (
             <div>
                 <span>Сhange your content </span>
                 <br/>
-                <input style={{margin:"10px 0"}} type="text" placeholder="Enter your content here" style={{width:"350px", height: "150px",}}></input>
+                <input type="text" placeholder="Enter your content here"/>
                 <br/>
-                <button style={{backgroundColor:"#44014c", color:"#fff", width:"150px", height: "30px",  margin:"15px 0"}} type="submit">Apply</button>
+                <button style={btn} type="submit">Apply</button>
             </div>);
     }
-}
 export default profile;

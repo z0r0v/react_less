@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import login from "login";
-import register from "register";
-import profile from "profile";
+import login from "./login";
+import register from "./register";
+import profile from "./profile";
 
 function AppRouter() {
     return (

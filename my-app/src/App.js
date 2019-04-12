@@ -1,6 +1,6 @@
 import React from "react";
 import Info from "./components/info";
-import AppRouter from "./components/Routing"
+import AppRouter from "./components/Routing";
 
 class App extends React.Component {
     render() {

@@ -1,21 +1,24 @@
 import React from "react";
-
-class register extends React.Component {
-    register() {
+const btn = {
+    background:'#800080',
+    width:'250px',
+    height:'30px',
+    color:'#FFFFFF'
+}
+   function register() {
     return(
         <div>
             <span>Enter you email </span>
-            <input style={{margin:"5px 0"}} type="text" placeholder="Enter you email"></input>
+            <input type="text" placeholder="Enter you email" />
             <br/>
             <span>Create password </span>
-            <input style={{margin:"5px 0"}} type="password" placeholder="Enter you Password"></input>
+            <input type="password" placeholder="Enter you Password" />
             <br/>
             <span>Confirm password </span>
-            <input style={{margin:"5px 0"}} type="password" placeholder="Confirm you Password"></input>
+            <input type="password" placeholder="Confirm you Password" />
             <br/>
-            <button style={{backgroundColor:"#44014c", color:"#fff", width:"150px", height: "30px",  margin:"15px 0"}} type="submit">Create account</button>
+            <button style={btn} type="submit">Create account</button>
         </div>
     );
  }
-}
 export default register;
