@@ -24,17 +24,21 @@ const inpStyleReg3 = {
     marginBottom:'5px',
 }
 
+const spanStl = {
+    color:'#800080',
+    fontWeight:"700",
+}
 
    function register() {
     return(
         <div>
-            <span>Enter you email: </span>
+            <span style={spanStl}>Enter you email: </span>
             <input style={inpStyleReg1} type="text" placeholder="Enter you email" />
             <br/>
-            <span>Create password: </span>
+            <span style={spanStl}>Create password: </span>
             <input style={inpStyleReg2} type="password" placeholder="Enter you Password" />
             <br/>
-            <span>Confirm password: </span>
+            <span style={spanStl}>Confirm password: </span>
             <input style={inpStyleReg3} type="password" placeholder="Confirm Password" />
             <br/>
             <button style={btn} type="submit">Create account</button>

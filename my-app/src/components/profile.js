@@ -14,10 +14,16 @@ const inpStyleProf = {
 
 }
 
+const spanStl = {
+    color:'#800080',
+    fontWeight:"700",
+}
+
+
    function profile() {
         return (
             <div>
-                <span>Сhange your content: </span>
+                <span style={spanStl}>Сhange your content: </span>
                 <br/>
                 <input style={inpStyleProf} type="text" placeholder="Enter your content here"/>
                 <br/>

@@ -20,13 +20,16 @@ const inpStylePas = {
     marginBottom:'5px',
 
 }
-
+const spanStl = {
+    color:'#800080',
+    fontWeight:"700",
+}
     function login() {
         return (
             <div>
-                <span>Login: </span>
+                <span style={spanStl}>Login: </span>
                 <input style={inpStyleLog} type="text" placeholder="Enter you email or login" /><br/>
-                <span>Password: </span>
+                <span style={spanStl}>Password: </span>
                 <input style={inpStylePas} type="password" placeholder="Enter you Password" /><br/>
                 <button style={btn} type="submit">Login you account</button>
             </div>
