@@ -11,6 +11,7 @@ const inpStyleLog = {
     width:'198px',
     height: "30px",
     marginBottom:'5px',
+    border:'1px solid #800080',
 
 }
 
@@ -18,6 +19,7 @@ const inpStylePas = {
     width:'170px',
     height: "30px",
     marginBottom:'5px',
+    border:'1px solid #800080',
 
 }
 const spanStl = {

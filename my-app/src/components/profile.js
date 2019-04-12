@@ -11,6 +11,7 @@ const inpStyleProf = {
     width:'244px',
     height: "100px",
     marginBottom:'5px',
+    border:'1px solid #800080',
 
 }
 

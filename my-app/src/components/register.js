@@ -7,21 +7,24 @@ const btn = {
 }
 
 const inpStyleReg1 = {
-    width:'145px',
+    width:'146px',
     height: "30px",
     marginBottom:'5px',
+    border:'1px solid #800080',
 }
 
 const inpStyleReg2 = {
     width:'140px',
     height: "30px",
     marginBottom:'5px',
+    border:'1px solid #800080',
 }
 
 const inpStyleReg3 = {
-    width:'130px',
+    width:'127px',
     height: "30px",
     marginBottom:'5px',
+    border:'1px solid #800080',
 }
 
 const spanStl = {
