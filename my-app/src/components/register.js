@@ -1,8 +1,7 @@
 import React from "react";
 
 class register extends React.Component {
-
-function register() {
+    register() {
     return(
         <div>
             <span>Enter you email </span>

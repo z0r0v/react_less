@@ -1,7 +1,7 @@
 import React from "react";
 
 class profile extends React.Component {
-    function profile() {
+   profile() {
         return (
             <div>
                 <span>Сhange your content </span>
