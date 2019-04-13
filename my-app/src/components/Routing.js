@@ -3,53 +3,61 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import login from "./login";
 import register from "./register";
 import profile from "./profile";
+import UserSession from "../UserSession";
+import "../App.css";
 
-const StlUl = {
-    listStyleType: "none",
-}
-const DivStl = {
-    textAlign:'center',
-}
+let session = new UserSession()
 
-const btnNavi = {
-    backgroundColor:'#800080',
-    display:'inlaine-block',
-    width:'250px',
-    marginRight:'37px'
-
-}
-
-const linkDecor = {
-    color:'#ffff',
-    textDecoration:'none',
-}
-
-function AppRouter() {
+function AppRouter(props) {
     return (
         <Router>
-            <div style={DivStl}>
+            <div className="DivStl">
                 <nav>
-                    <ul style={StlUl}>
+                    <ul className="StlUl">
                         <li>
-                            <button style={btnNavi}>
-                                <Link style={linkDecor} to="/login/">
-                                    Login
-                                </Link>
-                            </button>
+                            {
+                                !props.isLoggined ? /*Поменяли мместами ибо нам нужно наоборот*/
+                                (
+                                    <Link className="linkDecor" to="/login/">
+                                        <button className="btnNavi">
+                                            Login
+                                        </button>
+                                    </Link>
+                                )
+                                 :
+                                    (
+                                        <button className="btnNavi" onClick={
+                                            session.clear
+                                        }>
+                                            Logout
+                                        </button>
+                                    )
+                            }
+
                         </li>
                         <li>
-                            <button style={btnNavi}>
-                                <Link style={linkDecor} to="/register/">
-                                    Register
-                                </Link>
-                            </button>
+                            {
+                                !props.isLoggined &&
+                                (
+                                    <Link className="linkDecor" to="/register/">
+                                        <button className="btnNavi">
+                                            Register
+                                        </button>
+                                    </Link>
+                                )
+                            }
                         </li>
                         <li>
-                            <button style={btnNavi}>
-                                <Link style={linkDecor} to="/profile/">
-                                    Profile
+                            {
+                                props.isLoggined &&
+                                (
+                                    <Link className="linkDecor" to="/profile/">
+                                <button className="btnNavi">
+                                Profile
+                                </button>
                                 </Link>
-                            </button>
+                                )
+                            }
                         </li>
                     </ul>
                 </nav>

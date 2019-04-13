@@ -1,0 +1,106 @@
+@bgcollor:#800080;
+@wCol:#FFFFFF;
+body{
+  font-size: 16px;
+}
+* {
+  margin: 2px 2px;
+  padding: 2px 2px;
+  font-weight:700;
+}
+.btn, .btnNavi, .inpStyleReg1, .inpStyleReg2, .inpStyleReg3 {
+  height:30px;
+  width:200px;
+   max-width: 360px;
+   min-width: 200px;
+}
+.inpStyleReg1, .inpStyleReg2, .inpStyleReg3, .inpStyleProf, .inpStyleLog, .inpStyleLog1 {
+  border:2px solid @bgcollor;
+  margin-bottom:5px;
+}
+.spanStl, .style_h2, .style_p, .spanStl{
+  color:@bgcollor;
+}
+.btn, .btnNavi {
+  color:@wCol;
+  width:80%;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.style_p, .style_h2 {
+  text-align:center;
+}
+.btn {
+  background:@bgcollor;
+}
+.btnNavi {
+  background: @bgcollor;
+  display: inline-block;
+}
+.divBord {
+  border:2px solid @bgcollor;
+  margin-top:200px;
+}
+.inpStyleLog {
+  width:198px;
+  height: 30px;
+  margin-left:56px;
+}
+.inpStyleLog1{
+  width:198px;
+  height: 30px;
+  margin-left:27px;
+}
+.StlUl {
+  list-style-type: none;
+}
+.DivStl {
+  text-align:center;
+}
+.linkDecor {
+  text-decoration:none;
+}
+.inpStyleReg1 {
+  margin-left: 25px;
+}
+.inpStyleReg2{
+  margin-left: 17px;
+}
+.inpStyleReg3{
+  margin-left: 4px;
+}
+.spanStl{
+
+}
+.style_h2{
+  font-size:19px;
+}
+.inpStyleProf{
+  width:244px;
+  height:100px;
+}
+@media (max-width: 500px){
+  .inpStyleReg1, .inpStyleReg2, .inpStyleReg3, .inpStyleLog, .inpStyleLog1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0;
+    width: 70%;
+  }
+
+  .btnNavi, .btn{
+    font-size: 90%;
+  }
+  .style_h2{
+    font-size: 90%;
+  }
+  .style_p{
+    font-size: 70%;
+  }
+  .divBord {
+    margin: 0 0;
+
+  }
+  
+}
+
