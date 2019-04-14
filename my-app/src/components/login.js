@@ -15,8 +15,8 @@ class Login extends React.Component {
         this.state = {login: '', password:''}; /*Инициализируем переменную state*/
 
         this.handleLogin = this.handleLogin.bind(this); /*Делаем бинд на функцию (уснанавливет контекст ввыполнения)*/
-        this.handleSubmit = this.handleSubmit.bind(this); /*Делаем бинд на функцию*/
-        this.handlePassword = this.handlePassword.bind(this); /*Делаем бинд на функцию*/
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePassword = this.handlePassword.bind(this);
         this.uodateSession = this.uodateSession.bind(this);
     }
     /*Жизненный цикл компонента Появляеться на странице */
