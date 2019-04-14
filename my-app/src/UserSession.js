@@ -5,16 +5,6 @@ function UserSessionEvents() {
     this.subscribe = (func)=>{
         handlers.push(func);
     };
-
-    this.unsubscribe = (func)=>{
-        handlers.remove(func);
-    };
-
-    this.emit = ()=> {
-        handlers.forEach((h)=> {
-            h();
-        });
-    };
 }
 
 window.userSessionEvents = new UserSessionEvents();
@@ -27,7 +17,7 @@ function UserSession() {
         localStorage.setItem(SessionKey, JSON.stringify({
             email:"123@mai.ru", jwt:jwt
         }));
-        window.userSessionEvents.emit();
+
     };
     this.isValid =()=>{
         if (window.userSessionData) return true;
@@ -37,9 +27,7 @@ function UserSession() {
     this.clear = () =>{
         window.userSessionData = null;
         localStorage.removeItem(SessionKey);
-        window.userSessionEvents.emit();/* Вызвал событие для переменной*/
     };
-
 }
 
 export default UserSession;

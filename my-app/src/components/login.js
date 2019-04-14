@@ -19,14 +19,6 @@ class Login extends React.Component {
         this.handlePassword = this.handlePassword.bind(this);
         this.uodateSession = this.uodateSession.bind(this);
     }
-    /*Жизненный цикл компонента Появляеться на странице */
-    componentDidMount(){
-        window.userSessionEvents.subscribe(this.uodateSession) /*Подписываемся на событие Login Logout*/
-    }
-    /*Жизненный цикл компонента Исчезает со страницы на странице */
-    componentWillUnmount(){
-        window.userSessionEvents.unsubscribe(this.uodateSession) /*Отписываемся от событие Login Logout*/
-    }
 
     uodateSession(){
         this.setState({
