@@ -6,12 +6,10 @@ import UserSession from "../UserSession";
 class Login extends React.Component {
     constructor(props) {/*Первичная ницализация компонента*/
         super(props);/**/
+        
         /*Тут вводим псевдо клиента*/
         this.client = new client();/*Создаем новый обьект client*/
-
-
         this.session = new UserSession(); /*Создали объект*/
-
         this.state = {login: '', password:''}; /*Инициализируем переменную state*/
 
         this.handleLogin = this.handleLogin.bind(this); /*Делаем бинд на функцию (уснанавливет контекст ввыполнения)*/
@@ -25,7 +23,6 @@ class Login extends React.Component {
             isLogginet:this.session.isValid()/**/
         })
     }
-
 
     handleLogin(event) { /*Принимаем event в функцию*/
         this.setState({login: event.target.value}); /*Устанавливаем новое состояние переменной login*/
