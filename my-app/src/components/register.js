@@ -2,9 +2,18 @@ import React from "react";
 import client from "../api/Client";
 import "../App.css";
 import UserSession from "../UserSession";
+import { withRouter } from "react-router";
+import PropTypes from "prop-types";
+
 
 
 class Register extends React.Component {
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+    };
+
     constructor(props) {
         super(props);
         this.state = {email: '', password:'', confpassword:''};
@@ -39,6 +48,7 @@ class Register extends React.Component {
             регистрируе 2 функции которые дожидаються результата*/
         },(error) => {alert(error);}/*Получаем в случае ошибки*/
         )
+        this.props.history.push("login"); // Redirect user to login page
     }
 
     render() {
@@ -62,4 +72,4 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);

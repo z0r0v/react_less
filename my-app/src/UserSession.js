@@ -1,4 +1,6 @@
+import jwt from 'jsonwebtoken';/*Подрубил JWT*/
 const SessionKey = "session";
+
 
 function UserSessionEvents() {
     let handlers = [];
@@ -13,11 +15,16 @@ function UserSession() {
     this.load = ()=>{
         window.userSessionData = JSON.parse(localStorage.getItem(SessionKey));
     };
-    this.create =(jwt)=>{
-        localStorage.setItem(SessionKey, JSON.stringify({
-            email:"123@mai.ru", jwt:jwt
-        }));
+    /*если ключ не совпал то приложение должно или упасть или заблокироваться*/
+    this.create =(token)=>{
+        let decodedData = jwt.verify(token, 'server-secret-key');
+        let sessionData = {
+            data: decodedData, jwt: jwt
+        };
+        localStorage.setItem(SessionKey, JSON.stringify(sessionData));
+        window.userSessionData = sessionData;
 
+        /*else {приложение падает}*/
     };
     this.isValid =()=>{
         if (window.userSessionData) return true;
@@ -28,6 +35,9 @@ function UserSession() {
         window.userSessionData = null;
         localStorage.removeItem(SessionKey);
     };
+    this.getJwt = ()=> {
+        return window.userSessionData.jwt;
+    }
 }
 
 export default UserSession;

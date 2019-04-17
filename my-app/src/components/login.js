@@ -2,8 +2,16 @@ import  React from "react";
 import "../App.css";
 import client from "../api/Client";
 import UserSession from "../UserSession";
+import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 
 class Login extends React.Component {
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+    };
+
     constructor(props) {/*Первичная ницализация компонента*/
         super(props);/**/
 
@@ -39,6 +47,7 @@ class Login extends React.Component {
             alert(jwt);/*Вызываем логин в клиенте и дожидаемся результата выполнения операции login
             регистрируе 2 функции которые дожидаються результата*/
             this.session.create(jwt)/*Сохраняем полученый jws токен для создания новой сессии*/
+            this.props.history.push("/"); // Redirect user to main page
         },(error) => {alert(error);}/*Получаем в случае ошибки*/
     )
     }
@@ -65,4 +74,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
