@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import login from "./login";
 import register from "./register";
 import profile from "./profile";
@@ -15,11 +15,11 @@ const AuthButton = withRouter(
 
         !session.isValid() ?
             (
-                <Link className="linkDecor" to="/login/">
+                <NavLink className="linkDecor" to="/login/" activeClassName="inBtnNavi">
                     <button className="btnNavi">
                         Login
                     </button>
-                </Link>
+                </NavLink>
             )
             :
             (
@@ -32,41 +32,42 @@ const AuthButton = withRouter(
             )
 );
 
+const Nav = withRouter(({history}) => <nav>
+    <ul className="StlUl">
+        <li>
+            <AuthButton/>
+        </li>
+        {
+            !session.isValid() ?
+                (
+                    <li>
+                        <Link className="linkDecor" to="/register/">
+                            <button className="btnNavi">
+                                Register
+                            </button>
+                        </Link>
+                    </li>
+                )
+                :
+                (
+                    <li>
+                        <Link className="linkDecor" to="/profile/">
+                            <button className="btnNavi">
+                                Profile
+                            </button>
+                        </Link>
+                    </li>
+                )
+        }
+    </ul>
+</nav>);
+
 function AppRouter(props) {
 
     return (
         <Router>
             <div className="DivStl">
-                <nav>
-                    <ul className="StlUl">
-                        <li>
-                            <AuthButton/>
-                        </li>
-
-                        {
-                            !session.isValid() ?
-                        (
-                            <li>
-                                <Link className="linkDecor" to="/register/">
-                                    <button className="btnNavi">
-                                        Register
-                                    </button>
-                                </Link>
-                            </li>
-                        )
-                        :
-                        (
-                        <li>
-                        <Link className="linkDecor" to="/profile/">
-                        <button className="btnNavi">
-                        Profile
-                        </button>
-                        </Link>
-                        </li>
-                        )
-                    }
-                    </ul>
-                </nav>
+                <Nav/>
 
                 <Route path="/login/" exact component={login}/>
                 <Route path="/register/" component={register}/>

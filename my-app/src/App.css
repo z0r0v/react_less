@@ -21,7 +21,8 @@ body {
 .inpStyleReg3,
 .inpStyleProf,
 .inpStyleLog,
-.inpStyleLog1 {
+.inpStyleLog1,
+.inpStyleProfAdd {
   border: 2px solid #800080;
   margin-bottom: 5px;
 }
@@ -90,7 +91,14 @@ body {
 }
 .inpStyleProf {
   width: 244px;
+  height: 30px;
+}
+.inpStyleProfAdd {
+  width: 244px;
   height: 100px;
+}
+.inBtnNavi {
+  display: none;
 }
 @media (max-width: 500px) {
   .inpStyleReg1,

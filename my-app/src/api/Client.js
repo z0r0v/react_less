@@ -38,7 +38,7 @@ function client() {
                 try {
                     let decodedData = jwt.verify(token, 'server-secret-key');
                     let login = decodedData.login;
-                    localStorage.setItem("content_" + login, content);
+                    localStorage.setItem("content_" + login, JSON.stringify(content));
                     resolve(content);
                 } catch (err) {
                     reject(err);
@@ -54,7 +54,7 @@ function client() {
                     let decodedData = jwt.verify(token, 'server-secret-key');
                     let login = decodedData.login;
                     let content = localStorage.getItem("content_" + login);
-                    resolve(content);
+                    resolve(JSON.parse(content));
                 } catch (err) {
                     reject(err);
                 }

@@ -47,7 +47,7 @@ class Login extends React.Component {
             alert(jwt);/*Вызываем логин в клиенте и дожидаемся результата выполнения операции login
             регистрируе 2 функции которые дожидаються результата*/
             this.session.create(jwt)/*Сохраняем полученый jws токен для создания новой сессии*/
-            this.props.history.push("/"); // Redirect user to main page
+            this.props.history.push("/Profile"); // Redirect user to main page
         },(error) => {alert(error);}/*Получаем в случае ошибки*/
     )
     }
@@ -62,7 +62,7 @@ class Login extends React.Component {
             <form onSubmit={this.handleSubmit}>{/*Регистрируем оброботчки события onSubmit на handleSubmit */}
                 <label className='spanStl'>
                     Login:
-                    <input className='inpStyleLog' placeholder="Enter you email or login" type="text" value={this.state.login} onChange={this.handleLogin} />
+                    <input className='inpStyleLog' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter you email or login" type="text" value={this.state.login} onChange={this.handleLogin} />
                 </label><br/>
                 <label className='spanStl'>
                     Password:

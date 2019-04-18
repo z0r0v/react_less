@@ -19,7 +19,7 @@ function UserSession() {
     this.create =(token)=>{
         let decodedData = jwt.verify(token, 'server-secret-key');
         let sessionData = {
-            data: decodedData, jwt: jwt
+            data: decodedData, jwt: token
         };
         localStorage.setItem(SessionKey, JSON.stringify(sessionData));
         window.userSessionData = sessionData;

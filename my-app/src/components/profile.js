@@ -3,28 +3,65 @@ import "../App.css";
 import UserSession from "../UserSession";
 import nClient from "../api/Client";
 
-   function profile() {
 
-       let session = new UserSession();
-       if (!session.isValid()) {
-           return <div><p className='PneadLoggin'>You need to login</p></div>
-       }
-       else
-       {
-           let content = '';
-           let client = new nClient();
-           client.getContent(session.getJwt()).then((data) =>{content=data}, (err) => {} );
-        return (
-            <div>
-                <span className='spanStl'>Сhange your content: </span>
-                <br/>
-                <div className='spanStl'>{content}</div>
-                <input className='inpStyleProf' type="text" placeholder="Enter your content here" value={content} onChange={}/>
-                <br/>
-                <button className="btn" type="submit" onClick={(e) => {
-                    // client.sendContent(this.state.contentValue, );
-                }}>Apply</button>
-            </div>);
+class profile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            phone: '',
+            address: '',
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.client = new nClient();
+        this.session = new UserSession();
     }
-   }
+
+    componentDidMount() {
+        this.client.getContent(this.session.getJwt()).then((data) => {
+            this.setState(data);
+            console.log("request complete")
+        }, (err) => {
+            console.error(err);
+        });
+    }
+
+
+    handleSubmit(event) {
+        alert('Сочинение отправлено: ' + this.state.value);
+        event.preventDefault();
+    }
+
+    render() {
+        if (!this.session.isValid()) {
+            return <div><p className='PneadLoggin'>You need to login</p></div>
+        }
+        else {
+
+            return (
+                <div>
+                    <span className='spanStl'>Сhange your content: </span>
+                    <br/>
+                    <input className='inpStyleProf' type="text" placeholder="Enter your name"
+                           value={this.state.name} onChange={(e) => this.setState({name: e.target.value})
+                           }/>
+                    <br/>
+                    <input className='inpStyleProf' type="text" placeholder="Enter your phone"
+                           value={this.state.phone} onChange={(e) => this.setState({phone: e.target.value})
+                    }/>
+                    <input className='inpStyleProfAdd' type="text" placeholder="Enter your address"
+                           value={this.state.address} onChange={(e) => this.setState({address: e.target.value})
+                    }/>
+
+                    <button className="btn" type="submit" onClick={(event) => {
+                        this.client.sendContent({name:this.state.name, phone:this.state.phone,
+                            address:this.state.address}, this.session.getJwt());
+                    }}>Apply
+                    </button>
+                </div>);
+        }
+    }
+}
 export default profile;
