@@ -51,10 +51,11 @@ class profile extends React.Component {
                     <input className='inpStyleProf' type="text" placeholder="Enter your phone"
                            value={this.state.phone} onChange={(e) => this.setState({phone: e.target.value})
                     }/>
+                    <br/>
                     <input className='inpStyleProfAdd' type="text" placeholder="Enter your address"
                            value={this.state.address} onChange={(e) => this.setState({address: e.target.value})
                     }/>
-
+                    <br/>
                     <button className="btn" type="submit" onClick={(event) => {
                         this.client.sendContent({name:this.state.name, phone:this.state.phone,
                             address:this.state.address}, this.session.getJwt());
