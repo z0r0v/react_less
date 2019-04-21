@@ -34,6 +34,7 @@ class profile extends React.Component {
         event.preventDefault();
     }
 
+
     render() {
         if (!this.session.isValid()) {
             return <div><p className='PneadLoggin'>You need to login</p></div>
@@ -48,13 +49,15 @@ class profile extends React.Component {
                            value={this.state.name} onChange={(e) => this.setState({name: e.target.value})
                            }/>
                     <br/>
-                    <input className='inpStyleProf' type="text" placeholder="Enter your phone"
+                    {/*Узнать почему тот не работает pattern?*/}
+                    <input className='inpStyleProf'  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text"  placeholder="Enter your phone"
                            value={this.state.phone} onChange={(e) => this.setState({phone: e.target.value})
                     }/>
+                    <br/>
                     <input className='inpStyleProfAdd' type="text" placeholder="Enter your address"
                            value={this.state.address} onChange={(e) => this.setState({address: e.target.value})
                     }/>
-
+                    <br/>
                     <button className="btn" type="submit" onClick={(event) => {
                         this.client.sendContent({name:this.state.name, phone:this.state.phone,
                             address:this.state.address}, this.session.getJwt());
